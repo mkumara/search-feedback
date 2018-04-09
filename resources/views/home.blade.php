@@ -42,7 +42,7 @@
 	</script>
 </head>
 <body>
-<div id="header">
+<div id="header" style="padding: 40px;">
 	<form id="search">
 		<div class="row">
     		<div class="col-sm">

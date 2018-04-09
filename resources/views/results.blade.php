@@ -4,25 +4,26 @@
 
 <div>
 	<table class="table .table-striped">
-		<tbody>
-	@foreach ($data->hits->hits as $item) 
-	 <tr>
-	 	<td>
-	  	{{$item->_source->name}}
-	  </p>
-	  <p>
-	  	{{$item->_source->address}}
-	  	{{$item->_source->city}}
-	  	{{$item->_source->state}}
-	  	{{$item->_source->zip}}
+	<tbody>
+		@foreach ($data->hits->hits as $item) 
+		 <tr>
+		 <td>
+		 <p>
+		  	{{$item->_source->name}}
+		  </p>
+		  <p>
+		  	{{$item->_source->address}}
+		  	{{$item->_source->city}}
+		  	{{$item->_source->state}}
+		  	{{$item->_source->zip}}
 
-	  </p>
-	  <p>
-	  	{{$item->_source->donee_type}}
-	  </p>
-	</td>
-	</tr>
-	@endforeach
+		  </p>
+		  <p>
+		  	{{$item->_source->donee_type}}
+		  </p>
+		</td>
+		</tr>
+		@endforeach
 	</tbody>
 </table>
 </div>
