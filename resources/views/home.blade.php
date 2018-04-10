@@ -13,6 +13,10 @@
 				getData();
 			});
 
+			$('#save').click(function(){
+				saveComment();
+			});
+
 			$('#term').keydown(function(){
 				getData();
 			});
@@ -37,6 +41,25 @@
 					  	$('#result').html(msg);
 				  });
 			}
+
+			function saveComment()
+			{
+				$term = $('#term').val();
+				$comment = $('#comment').val();
+				$user = $('#user').val();
+				$.ajax({
+					  method: "POST",
+					  url: "/save-comment",
+					  data: { term: $term,
+					          comment: $comment,
+					          user: $user,
+					          _token: '{{csrf_token()}}'
+					        }
+					})
+					.done(function( msg ) {
+					  	$('#commentresult').html('Successfully saved.');
+				  });
+			}
 		});
 		
 	</script>
@@ -50,6 +73,13 @@
 			</div>
 			<div class="col-sm">
 				<input type="button" name="submit" id="submit" class="btn btn-outline-primary" value="Search">
+			</div>
+			<div class="col-sm">
+				<label>Enter your comment here:</label><br>
+				<textarea name="comment" id="comment" class="form-control"></textarea><br>
+				<label>Name (Optional)</label><br>
+				<input type="text" name="user" id="user" class="form-control"><br>
+				<input type="button" name="save" id="save" class="btn btn-outline-primary" value="Save">
 			</div>
 		</div>
 	</form>

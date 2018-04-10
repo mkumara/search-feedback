@@ -13,3 +13,4 @@
 
 Route::get('/', 'HomeController@index');
 Route::get('/search', 'HomeController@search');
+Route::post('/save-comment', 'HomeController@saveComment');

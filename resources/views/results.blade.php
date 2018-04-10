@@ -3,23 +3,23 @@
 <p>Maximum Score Value : {{$data->hits->max_score}}</p>
 
 <div>
-	<table class="table .table-striped">
+	<table class="table table-striped">
 	<tbody>
 		@foreach ($data->hits->hits as $item) 
 		 <tr>
 		 <td>
 		 <p>
-		  	{{$item->_source->name}}
+		  	Name: {{$item->_source->name}}
 		  </p>
 		  <p>
-		  	{{$item->_source->address}}
+		  	Address: {{$item->_source->address}}
 		  	{{$item->_source->city}}
 		  	{{$item->_source->state}}
 		  	{{$item->_source->zip}}
 
 		  </p>
 		  <p>
-		  	{{$item->_source->donee_type}}
+		  	Type: {{$item->_source->donee_type}}, Score: {{$item->_score}}
 		  </p>
 		</td>
 		</tr>

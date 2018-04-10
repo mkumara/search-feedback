@@ -2,5 +2,5 @@
 
 return
 [
-	'searchapi' =>'http://searchapi.test/search_donee/',
+	'searchapi' =>'searchapi.test/search_donee/',
 ];
