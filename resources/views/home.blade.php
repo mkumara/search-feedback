@@ -57,7 +57,7 @@
 					        }
 					})
 					.done(function( msg ) {
-					  	$('#commentresult').html('Successfully saved.');
+					  	alert('Successfully saved.');
 				  });
 			}
 		});
