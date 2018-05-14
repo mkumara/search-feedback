@@ -7,14 +7,13 @@ use App\Models\Search\Outputs\HTMLOutput;
 
 class SearchFeature
 {
-	public function run($term)
-	{
-		$job = new Search();
-		$results = $job->run($term);
-      
-		$output = new HTMLOutput();
-		return $output->run($results);
+    public function run($term)
+    {
+        $job = new Search();
+        $results = $job->run($term);
 
-	}
+        $output = new HTMLOutput();
 
+        return $output->run($results);
+    }
 }
