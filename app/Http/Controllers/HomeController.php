@@ -2,37 +2,34 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use App\Models\Search\Features\SearchFeature;
 use App\Models\Comment\Features\CommentFeature;
+use App\Models\Search\Features\SearchFeature;
+use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
-	public function index(Request $request)
-	{
-		return view('home');
-
-	}
+    public function index(Request $request)
+    {
+        return view('home');
+    }
 
     public function search(Request $request)
     {
+        $term = $request->get('term');
 
-    	$term = $request->get('term');
+        $feature = new SearchFeature();
 
-    	$feature = new SearchFeature();
-
-    	return $feature->run($term);
+        return $feature->run($term);
     }
 
     public function saveComment(Request $request)
     {
+        $term = $request->get('term');
+        $comment = $request->get('comment');
+        $user = $request->get('user');
 
-    	$term = $request->get('term');
-    	$comment = $request->get('comment');
-    	$user = $request->get('user');
+        $feature = new CommentFeature();
 
-    	$feature = new CommentFeature();
-
-    	return $feature->run($term, $comment, $user);
+        return $feature->run($term, $comment, $user);
     }
 }
